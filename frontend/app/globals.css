@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+html, body { height: 100%; }
+body {
+  background: #0d1117;
+  color: #d6dde8;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.num { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-variant-numeric: tabular-nums; }
+
+@keyframes flash-up { from { background-color: rgba(38, 208, 124, 0.45); } to { background-color: transparent; } }
+@keyframes flash-down { from { background-color: rgba(255, 84, 112, 0.45); } to { background-color: transparent; } }
+.flash-up { animation: flash-up 500ms ease-out; }
+.flash-down { animation: flash-down 500ms ease-out; }
+
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+.dot-pulse { animation: pulse-dot 1.2s ease-in-out infinite; }
+
+@keyframes blink { 0%, 80%, 100% { opacity: 0.25; } 40% { opacity: 1; } }
+.typing span { animation: blink 1.2s infinite; }
+.typing span:nth-child(2) { animation-delay: 0.2s; }
+.typing span:nth-child(3) { animation-delay: 0.4s; }
+
+*:focus-visible { outline: 1px solid #209dd7; outline-offset: 1px; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: #263142; border-radius: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  .flash-up, .flash-down, .dot-pulse, .typing span { animation: none; }
+}
+
+.panel { background: #111823; border: 1px solid #263142; }
+.panel-title { font-size: 11px; letter-spacing: 0.04em; color: #8b98ad; font-weight: 600; }
